@@ -52,6 +52,7 @@
 
 .project-card {
   display: none;
+  box-sizing: border-box;
   break-inside: avoid;
   /* Concentric: 8px inner image radius + 8px padding = 16px outer */
   border-radius: 16px;

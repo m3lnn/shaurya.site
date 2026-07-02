@@ -1,33 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Building on working</title>
-    <link>http://localhost:1313/tags/building/</link>
-    <description>Recent content in Building on working</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 01:20:23 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/building/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Bloooom</title>
-      <link>http://localhost:1313/working/bloooom/</link>
-      <pubDate>Sun, 16 Nov 2025 15:49:14 +0530</pubDate>
-      <guid>http://localhost:1313/working/bloooom/</guid>
-      <description>&lt;p&gt;A collaboration platform born from a simple observation: great ideas and great builders rarely find each other.&lt;/p&gt;&#xA;&lt;h4 id=&#34;the-opportunity&#34;&gt;The opportunity&lt;/h4&gt;&#xA;&lt;h3 id=&#34;ai-made-it-possible-for-me-to-design-and-build-products-end-to-end&#34;&gt;AI made it possible for me to design and build products end to end&lt;/h3&gt;&#xA;&lt;p&gt;This project started in 2023, right after ChatGPT became widely available. It felt like a turning point. As a designer, I suddenly had the ability to take an idea all the way from concept to a working product without depending on someone else to build it.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Watch When</title>
-      <link>http://localhost:1313/experimenting/watch-when/</link>
-      <pubDate>Fri, 27 Feb 2026 20:44:09 +0530</pubDate>
-      <guid>http://localhost:1313/experimenting/watch-when/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Fast Cast</title>
-      <link>http://localhost:1313/working/fast-cast/</link>
-      <pubDate>Sun, 16 Nov 2025 15:32:05 +0530</pubDate>
-      <guid>http://localhost:1313/working/fast-cast/</guid>
-      <description>&lt;p&gt;Fast Cast is a marketplace that helps fashion students quickly find and book&#xA;models for their college shoots.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://fast-cast.vercel.app&#34;&gt;Visit site&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Building on working</title><link>https://example.org/tags/building/</link><description>Recent content in Building on working</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 02 Jul 2026 16:19:05 +0530</lastBuildDate><atom:link href="https://example.org/tags/building/index.xml" rel="self" type="application/rss+xml"/><item><title>Bloooom</title><link>https://example.org/working/bloooom/</link><pubDate>Sun, 16 Nov 2025 15:49:14 +0530</pubDate><guid>https://example.org/working/bloooom/</guid><description>&lt;p&gt;A collaboration platform born from a simple observation: great ideas and great builders rarely find each other.&lt;/p&gt;
+
+&lt;div class="cs-metrics"&gt;
+ 
+ 
+ &lt;div class="cs-metric"&gt;
+ &lt;span class="cs-metric__value"&gt;100&lt;/span&gt;
+ &lt;span class="cs-metric__label"&gt;early users&lt;/span&gt;
+ &lt;/div&gt;
+
+ 
+ &lt;div class="cs-metric"&gt;
+ &lt;span class="cs-metric__value"&gt;1&lt;/span&gt;
+ &lt;span class="cs-metric__label"&gt;designer &amp;#43; developer (me)&lt;/span&gt;
+ &lt;/div&gt;
+
+ 
+ &lt;div class="cs-metric"&gt;
+ &lt;span class="cs-metric__value"&gt;2023&lt;/span&gt;
+ &lt;span class="cs-metric__label"&gt;built post-ChatGPT&lt;/span&gt;
+ &lt;/div&gt;
+
+
+&lt;/div&gt;
+
+
+
+&lt;a class="cs-button external" href="https://bloooom.vercel.app" target="_blank" rel="noopener"&gt;
+ &lt;span&gt;View live product&lt;/span&gt;
+ &lt;span class="cs-button__icon" aria-hidden="true"&gt;↗&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;h4 id="the-opportunity"&gt;The opportunity&lt;/h4&gt;
+&lt;h3 id="ai-made-it-possible-for-me-to-design-and-build-products-end-to-end"&gt;AI made it possible for me to design and build products end to end&lt;/h3&gt;
+&lt;p&gt;This project started in 2023, right after ChatGPT became widely available. It felt like a turning point. As a designer, I suddenly had the ability to take an idea all the way from concept to a working product without depending on someone else to build it.&lt;/p&gt;</description></item><item><title>Watch When</title><link>https://example.org/experimenting/watch-when/</link><pubDate>Fri, 27 Feb 2026 20:44:09 +0530</pubDate><guid>https://example.org/experimenting/watch-when/</guid><description/></item><item><title>Fast Cast</title><link>https://example.org/working/fast-cast/</link><pubDate>Sun, 16 Nov 2025 15:32:05 +0530</pubDate><guid>https://example.org/working/fast-cast/</guid><description>&lt;p&gt;Fast Cast is a marketplace that helps fashion students quickly find and book
+models for their college shoots.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fast-cast.vercel.app"&gt;Visit site&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

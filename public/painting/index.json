@@ -1,13 +1,1 @@
-[{
-    "title": "Starry Night",
-    "url_image": "/painting/1/image.jpg",
-    "artist": "",
-    "year": "1889",
-    "medium": "Oil on canvas"
-  },{
-    "title": "Starry Night",
-    "url_image": "/painting/2/image.jpg",
-    "artist": "",
-    "year": "1889",
-    "medium": "Oil on canvas"
-  }]
+[{"title":"Starry Night","url_image":"/painting/1/image.jpg","artist":"","year":"1889","medium":"Oil on canvas"},{"title":"Starry Night","url_image":"/painting/2/image.jpg","artist":"","year":"1889","medium":"Oil on canvas"}]

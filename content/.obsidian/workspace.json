@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "writing/good-vs-bad-design.md",
+                "file": "writing/being-annoying.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "good-vs-bad-design"
+              "title": "being-annoying"
             }
           },
           {
@@ -191,17 +191,19 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-shellcommands:Shell commands: Custom variables": false,
+      "cmdr:Shell commands: Execute: Publish Hugo Site": false
     }
   },
   "active": "e5bf721b6a76e108",
   "lastOpenFiles": [
     "writing/consumption-and-privacy.md",
     "writing/good-vs-bad-design.md",
+    "writing/nat-friedman.md",
     "writing/why-designers-make-bad-founders.md",
     "writing/being-annoying.md",
     "writing/_index.md",
-    "writing/nat-friedman.md",
     "writing/what-is-a-product.md",
     "writing/battle.md",
     "writing/making-art.md",
