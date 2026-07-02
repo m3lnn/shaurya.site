@@ -24,7 +24,7 @@
   "max_visible_lines_in_shell_command_fields": false,
   "shell_commands": [
     {
-      "id": "5j5v3fre53",
+      "id": "wekyyh4h2j",
       "platform_specific_commands": {
         "default": "#!/bin/bash\n\n# Change this to your Hugo site's root directory\nHUGO_ROOT=\"/Users/shaurya/Desktop/web/shaurya.site\"\n\ncd \"$HUGO_ROOT\" || {\n    echo \"Could not find Hugo directory:\"\n    echo \"$HUGO_ROOT\"\n    exit 1\n}\n\ngit rev-parse --is-inside-work-tree >/dev/null 2>&1 || {\n    echo \"This is not a Git repository.\"\n    exit 1\n}\n\necho\nread -rp \"Commit message: \" msg\n\nif [ -z \"$msg\" ]; then\n    msg=\"Update $(date '+%Y-%m-%d %H:%M')\"\nfi\n\ngit add .\n\nif git diff --cached --quiet; then\n    echo \"Nothing to commit.\"\n    read -n 1 -s -r -p \"Press any key to close...\"\n    echo\n    exit 0\nfi\n\ngit commit -m \"$msg\" || exit 1\ngit push\n\necho\necho \"✅ Successfully pushed.\"\nread -n 1 -s -r -p \"Press any key to close...\"\necho"
       },
