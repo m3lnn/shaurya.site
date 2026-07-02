@@ -1,0 +1,23 @@
+{{/* Persona card. `image` resolves against the page's bundled resources.
+     Inner content (bio, goals, quote) is rendered as markdown.
+     Usage:
+       {{< persona name="Ava Reyes" role="Daily commuter" image="images/ava.png" >}}
+       - Wants a calmer commute
+       - Frustrated by cluttered dashboards
+       {{< /persona >}} */}}
+{{ $img := .Get "image" }}
+{{ if $img }}
+{{ $res := .Page.Resources.GetMatch $img }}
+{{ if not $res }}{{ $res = .Page.Resources.GetMatch (printf "**%s" $img) }}{{ end }}
+{{ with $res }}{{ $img = .RelPermalink }}{{ end }}
+{{ end }}
+<div class="cs-persona">
+  <div class="cs-persona__head">
+    {{ with $img }}<img class="cs-persona__avatar" src="{{ . }}" alt="{{ $.Get "name" }}">{{ end }}
+    <div class="cs-persona__meta">
+      {{ with .Get "name" }}<span class="cs-persona__name">{{ . }}</span>{{ end }}
+      {{ with .Get "role" }}<span class="cs-persona__role">{{ . }}</span>{{ end }}
+    </div>
+  </div>
+  {{ with .Inner }}<div class="cs-persona__body">{{ . | markdownify }}</div>{{ end }}
+</div>

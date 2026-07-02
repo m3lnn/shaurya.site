@@ -1,0 +1,9 @@
+{{/* Vertical timeline. Wrap one or more {{< event >}} children.
+     Usage:
+       {{< timeline >}}
+         {{< event date="Week 1" title="Kickoff" >}}Scoping and interviews.{{< /event >}}
+         {{< event date="Week 3" title="Synthesis" >}}Affinity mapping.{{< /event >}}
+       {{< /timeline >}} */}}
+<div class="cs-timeline">
+  {{ .Inner }}
+</div>

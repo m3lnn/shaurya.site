@@ -1,0 +1,35 @@
+{{/* Video player. `src` may be a full bundle path (images/demo.mp4) or a bare
+     filename; resolves against the page's bundled resources, falling back to
+     the raw path (also works for an external URL). Optional `poster`
+     resolves the same way. Unlike images, video is flush — no radius, no
+     outline/shadow — so it reads as a screen, not a card.
+     Usage:
+       {{< video src="images/demo.mp4" >}}
+       {{< video src="images/demo.mp4" poster="images/demo-poster.jpg" loop="true" muted="true" autoplay="true" >}} */}}
+{{ $resolve := "" }}
+{{ $src := .Get "src" }}
+{{ if $src }}
+  {{ $res := .Page.Resources.GetMatch $src }}
+  {{ if not $res }}{{ $res = .Page.Resources.GetMatch (printf "**%s" $src) }}{{ end }}
+  {{ with $res }}{{ $src = .RelPermalink }}{{ end }}
+{{ end }}
+{{ $poster := .Get "poster" }}
+{{ if $poster }}
+  {{ $pres := .Page.Resources.GetMatch $poster }}
+  {{ if not $pres }}{{ $pres = .Page.Resources.GetMatch (printf "**%s" $poster) }}{{ end }}
+  {{ with $pres }}{{ $poster = .RelPermalink }}{{ end }}
+{{ end }}
+{{ $autoplay := eq (.Get "autoplay") "true" }}
+{{ $loop := eq (.Get "loop") "true" }}
+{{ $muted := or $autoplay (eq (.Get "muted") "true") }}
+<div class="cs-video">
+  <video
+    {{ with $poster }}poster="{{ . }}"{{ end }}
+    {{ if $autoplay }}autoplay playsinline{{ end }}
+    {{ if $loop }}loop{{ end }}
+    {{ if $muted }}muted{{ end }}
+    controls
+    preload="metadata">
+    <source src="{{ $src }}">
+  </video>
+</div>

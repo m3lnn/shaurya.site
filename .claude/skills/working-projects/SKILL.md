@@ -98,6 +98,80 @@ Template: `layouts/case-study/single.html` (styled by `static/css/content.css`).
 Hugo resolves this by `type`, not by section — this is why the layout file
 lives at `layouts/case-study/`, not `layouts/working/`.
 
+## Case-study content shortcodes
+
+Reusable layout blocks for case-study bodies, in `layouts/shortcodes/`, styled
+in the `CASE-STUDY SHORTCODE COMPONENTS` section of `static/css/content.css`.
+They share the site's design language: white surfaces lifted by the
+`--shadow-border` token, IBM Plex Mono uppercase micro-labels, Geologica
+headings, 10px radii. All CSS classes are prefixed `cs-`. Every block-level
+shortcode carries its own top/bottom margin, so don't wrap them in extra
+spacing.
+
+| shortcode | purpose | paired? | key args |
+|---|---|---|---|
+| `metrics` + `metric` | KPI cards | `metrics` yes, `metric` self | `metric` takes `value`, `label` |
+| `2col` + `col` | 50/50 grid | yes | put two `col` children inside |
+| `2col-reverse` + `col` | 50/50 grid, columns visually swapped on desktop | yes | author cols in reading order |
+| `3col` + `col` | three equal columns | yes | put three `col` children inside |
+| `gallery` | responsive image grid (`auto-fit`, min 220px) | yes | drop markdown images inside |
+| `figure` | captioned image | self | `src`, `caption`, `alt` |
+| `process` | horizontal steps joined by arrows | self | positional step labels |
+| `timeline` + `event` | vertical chronology | yes | `event` takes `date`, `title` + inner markdown |
+| `comparison` | before/after images side by side | self | `before`, `after`, `before-label`, `after-label` |
+| `persona` | profile card | yes | `name`, `role`, `image` (optional) + inner markdown |
+| `accordion` | expandable `<details>` section | yes | `title` + inner markdown |
+| `button` | external link button | yes | `href`; label is the inner text |
+| `video` | native `<video>` player | self | `src`, `poster`, `autoplay`/`loop`/`muted` = `"true"` |
+
+Notes / conventions:
+
+- **Nested shortcodes** (`metrics`, `2col`, `3col`, `2col-reverse`, `timeline`)
+  just render `.Inner`; their children (`metric`, `col`, `event`) do the work.
+  `col` runs its inner through `markdownify`, so full markdown (images, lists,
+  bold) works inside a column.
+- **`col` is the shared column child** for all three grid shortcodes. On
+  `≤760px` all grids (and `comparison`) collapse to a single column, and the
+  reverse ordering is dropped.
+- **Image args resolve against the page bundle.** `figure`, `comparison`, and
+  `persona` accept either a full bundle path (`images/foo.jpg`) or a bare
+  filename (`foo.jpg`) — they try `.Resources.GetMatch $src`, then fall back to
+  a `**<name>` glob, then to the raw string. Matching is case-insensitive, so
+  `Design4.jpg` and `design4.jpg` both resolve. `gallery` uses ordinary
+  markdown images, so those paths follow the normal body-image rules
+  (`images/…`).
+- **`button` must be paired** (`{{</* button href="…" */>}}Label{{</* /button */>}}`)
+  because it reads `.Inner` for the label. It adds `class="external"` so it
+  picks up the external cursor + new-tab behavior automatically. `.cs-button`
+  overrides the global wavy-underline link style.
+- **`accordion` icon** is a `+` that rotates to `×` when open. It must be
+  `display:inline-block` (it is) — `transform` is ignored on default
+  `display:inline` spans.
+- **`video` is square, not rounded** — `border-radius: 0`, unlike
+  `figure`/`comparison`/`gallery` images (8px radius). It keeps the same
+  subtle 1px outline as images for depth, so it reads as a flush screen
+  rather than a rounded card. `src`/`poster` resolve the same way as `figure`
+  (bundle path or bare filename, case-insensitive). Passing `autoplay="true"`
+  forces `muted` + `playsinline` on regardless of the `muted` arg, since
+  browsers block unmuted autoplay.
+
+Example (paired grid with an image column):
+
+```
+{{</* 2col */>}}
+  {{</* col */>}}
+Copy on the left, full markdown supported.
+  {{</* /col */>}}
+  {{</* col */>}}
+![alt](image.png)
+  {{</* /col */>}}
+{{</* /2col */>}}
+```
+
+Live usage to copy from: `content/working/bloooom/index.md` (metrics, button,
+3col, 2col, accordion) and `content/working/carvers/index.md` (metrics,
+figure, process, persona, gallery, comparison, timeline, 2col-reverse).
+
 ## External-link specifics
 
 Only needs `externalurl`. The card wraps everything in `<a target="_blank"
@@ -167,7 +241,8 @@ background. GSAP + SplitText are self-hosted (`static/scripts/gsap.min.js`,
 | `layouts/index.html` | project grid loop, card markup per type, NDA modal shell + controller |
 | `layouts/partials/project-card-inner.html` | shared cover/title/description/tags markup used inside every card |
 | `layouts/case-study/single.html` | the case-study page template (by `type`, not section) |
-| `static/css/content.css` | case-study page styles (hero, intro, `taggrid`) |
+| `layouts/shortcodes/*.html` | case-study content shortcodes (see section above) |
+| `static/css/content.css` | case-study page styles (hero, intro, `taggrid`) + `CASE-STUDY SHORTCODE COMPONENTS` (`cs-*`) |
 | `static/css/working.css` | card grid styles + NDA modal styles |
 | `static/css/global.css` | `CURSORS` + `CURSOR LABEL` sections |
 | `static/scripts/cursor-label.js` | hover-label controller (follow, stagger, cycling) |

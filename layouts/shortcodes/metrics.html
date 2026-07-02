@@ -1,0 +1,9 @@
+{{/* KPI cards. Wrap one or more {{< metric >}} children.
+     Usage:
+       {{< metrics >}}
+         {{< metric value="+18%" label="conversion" >}}
+         {{< metric value="14" label="interviews" >}}
+       {{< /metrics >}} */}}
+<div class="cs-metrics">
+  {{ .Inner }}
+</div>

@@ -16,6 +16,14 @@ bgColor: "#5FDD97"
 
 A collaboration platform born from a simple observation: great ideas and great builders rarely find each other.
 
+{{< metrics >}}
+  {{< metric value="100" label="early users" >}}
+  {{< metric value="1" label="designer + developer (me)" >}}
+  {{< metric value="2023" label="built post-ChatGPT" >}}
+{{< /metrics >}}
+
+{{< button href="https://bloooom.vercel.app" >}}View live product{{< /button >}}
+
 
 #### The opportunity
 ### AI made it possible for me to design and build products end to end
@@ -72,23 +80,41 @@ Before designing anything, I interviewed both designers and developers to unders
 
 #### Key insights
 
-- Designers had ideas but lacked technical collaborators to bring them to life.
-- Developers wanted interesting product problems instead of building tutorial projects or clones.
-- Both groups were looking for people, not just content.
+{{< 3col >}}
+  {{< col >}}
+**Designers**
 
-These conversations shaped the product from a portfolio platform into a collaboration platform.
+Had ideas but lacked technical collaborators to bring them to life.
+  {{< /col >}}
+  {{< col >}}
+**Developers**
 
----
+Wanted interesting product problems instead of building tutorial projects or clones.
+  {{< /col >}}
+  {{< col >}}
+**Both**
+
+Were looking for people, not just content.
+  {{< /col >}}
+{{< /3col >}}
+
 
 #### Designing the interface
 
 ## Reducing friction was more important than adding features
 
+{{< 2col >}}
+  {{< col >}}
 The experience was designed around one simple idea: make sharing work feel effortless.
 
 I focused on reducing friction during onboarding so users could quickly publish projects and discover others.
 
 Alongside the product, I designed the visual identity, logo, interface, and interaction patterns.
+  {{< /col >}}
+  {{< col >}}
+![Bloooom interface](image.png)
+  {{< /col >}}
+{{< /2col >}}
 
 
 #### Design principles
@@ -110,13 +136,13 @@ I learned how frontend and backend systems communicate, the difference between c
 
 I built the product using HTML, CSS, Tailwind CSS, JavaScript, and modern JavaScript frameworks.
 
-### Technical takeaways
-
+{{< accordion title="Technical takeaways" >}}
 - Client vs server architecture
 - Backend fundamentals
 - Component based UI development
 - HTML, CSS, Tailwind CSS
 - Modern JavaScript frameworks
+{{< /accordion >}}
 
 More importantly, I stopped thinking about screens as static designs and started thinking in terms of reusable components, application state, and implementation constraints.
 

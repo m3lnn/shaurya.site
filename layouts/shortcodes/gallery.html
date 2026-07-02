@@ -1,0 +1,11 @@
+{{/* Responsive image gallery. Drop markdown images inside; they flow into a
+     responsive grid.
+     Usage:
+       {{< gallery >}}
+       ![](images/one.png)
+       ![](images/two.png)
+       ![](images/three.png)
+       {{< /gallery >}} */}}
+<div class="cs-gallery">
+  {{ .Inner | markdownify }}
+</div>

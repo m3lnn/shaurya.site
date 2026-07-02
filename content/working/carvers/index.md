@@ -25,6 +25,12 @@ taggrid:
 
 Designing for a productive and unique driving experience through an Infotainment system while ensuring road safety and driver concentration.
 
+{{< metrics >}}
+  {{< metric value="55" label="car owners surveyed" >}}
+  {{< metric value="4 yrs" label="avg. life spent driving" >}}
+  {{< metric value="53%" label="report boredom at the wheel" >}}
+{{< /metrics >}}
+
 
 #### The Challenge
 
@@ -36,9 +42,11 @@ My interest in the domain of UX for automobiles began from a simple realisation 
 
 We spend a big portion of our lives in cars. But are users getting the experience they deserve? I started this project with a veiw that Infotainment systems can do a lot more to deliver unique experiences to drivers and passengers.
 
-![process](images/process.jpg)
+{{< figure src="process.jpg" caption="The end-to-end design process I followed for Carvers" >}}
 
-This project was my introduction to the UX design process. I followed a very standard process from research to prototypint and implemented various tools and techniques.
+This project was my introduction to the UX design process. I followed a very standard process from research to prototyping and implemented various tools and techniques.
+
+{{< process "Research" "Synthesis" "Ideation" "UI Design" "Prototype" >}}
 
 #### Understanding the market
 
@@ -61,15 +69,21 @@ To kick off the project, I began by understanding and categorizing existing info
 > 
 > This trend provides an opportunity to leverage these platforms to **develop new and unique driving experiences that would make cars stand out** in a competitive industry.
 
+
+{{< 2col-reverse >}}
+  {{< col >}}
+![AAOS platform research](images/research11.jpg)
+  {{< /col >}}
+  {{< col >}}
+
 #### Choosing the Platform
 
 ### Why Google's AAOS?
-
-![Research Picture 3](images/research11.jpg)
-
-### Google makes the platform, car makers fine tune it to their brand experience.
+**Google makes the platform, car makers fine tune it to their brand experience.**
 
 I chose to work over Google's AAOS platform to build an infotainment system that provided a uniquely assistive driving experience.
+  {{< /col >}}
+{{< /2col-reverse >}}
 
 To do this, I studied the existing infotainment systems and the features. I categorised the features in to three major buckets:
 
@@ -138,6 +152,13 @@ By understanding the market and drivers' needs, the is aim to create an infotain
 
 The results of user research were distilled into user personas and empathy maps, enhancing my understanding of user perspectives.
 
+{{< persona name="The Luxury Commuter" role="High-end car owner" >}}
+- Expects best-in-class performance and features, and can pay for them
+- Frequently uses navigation, music streaming and hands-free calling
+- Frustrated by cluttered interfaces and slow response times
+- Wants productivity without compromising safety
+{{< /persona >}}
+
 ![Research 2 Picture 1](images/research1.jpg)
 
 The user journeys built for the personas helped to reveal points of intervention and opportunities.
@@ -178,7 +199,7 @@ The Interface aims to guide and assist the user in every stage of the driving pr
 
 To start the design process, I began by creating a moodboard with the help of a fashion student to explore various styles and elements. We collected a wide range of images, textures, color palettes, typography examples, and interface designs from various sources. This included existing infotainment systems, automotive design trends, contemporary UI/UX patterns, and even fashion and technology inspirations.
 
-![Design 4](images/design4.jpg)
+{{< figure src="Design4.jpg" caption="Moodboard exploring style, texture, colour and typography" >}}
 
 ### Creating an elegant, futuristic and sophisticated system
 
@@ -201,26 +222,50 @@ I created various reusable and responsive components for my design keeping both 
 
 The final interface design incorporates a selection of features from the information architecture, focusing primarily on ride optimization. This segment of the system addresses key aspects such as navigation, ride start, and driving assistance, all aimed at enhancing the overall driving experience.
 
-![Final image 1](images/final1.jpg)![Final image 2](images/final2.jpg)![Final image 3](images/final3.jpg)![Final image 4](images/final4.jpg)
+{{< gallery >}}
+![Final design 1](images/final1.jpg)
+![Final design 2](images/final2.jpg)
+{{< /gallery >}}
 
-#### Ride Setup
+{{< gallery >}}
+![Final design 3](images/final3.jpg)
+![Final design 4](images/final4.jpg)
+{{< /gallery >}}
 
-Setup and save frequent rides with minute control over the ambience, climate and passengers of the trip. This allows users to customise their experience for regular journeys like "commute" or "picking up the kids".
+{{< 2col >}}
+  {{< col >}}
+  #### Ride Setup
 
-![undefined media 1](images/feature_1.jpg)
+  Setup and save frequent rides with minute control over the ambience, climate and passengers of the trip. This allows users to customise their experience for regular journeys like "commute" or "picking up the kids".
+  {{< /col >}}
+  {{< col >}}
 
-#### Mindful Driving
+  ![undefined media 1](images/feature_1.jpg)
+
+
+  {{< /col >}}
+{{< /2col >}}
+
+
+{{< 2col >}}
+  {{< col >}}
+  ![undefined media 1](images/feature_2.jpg)
+  {{< /col >}}
+  {{< col >}}
+
+  #### Mindful Driving
 
 This app can be configured to allow for regular reflections and moments of mindulness in monotonous and often exhausting commutes, at the end of the day.
 
-![undefined media 1](images/feature_2.jpg)
+
+  {{< /col >}}
+{{< /2col >}}
 
 #### Dark Mode
 
 Providing a dark mode is not only makes the design more accessible but is also an absolute requirement according to Google's design for driving principles to ensure minimal driver distractions.
 
-
-![undefined media 1](images/feature_4.jpg)
+{{< comparison before="Feature_3.jpg" after="Feature_4.jpg" before-label="Light mode" after-label="Dark mode" >}}
 
 #### App Library
 

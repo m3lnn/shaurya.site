@@ -140,6 +140,7 @@ h4 {
   opacity: 0.5;
   text-wrap: balance;
   margin: 3rem 0 1rem;
+  color: var(--dark);
 
 }
 

@@ -1,0 +1,9 @@
+{{/* Horizontal process steps separated by arrows. Pass step labels as
+     positional arguments.
+     Usage: {{< process "Discover" "Define" "Design" "Deliver" >}} */}}
+<div class="cs-process">
+  {{ range $i, $step := .Params }}
+  {{ if $i }}<span class="cs-process__arrow" aria-hidden="true">→</span>{{ end }}
+  <span class="cs-process__step">{{ $step }}</span>
+  {{ end }}
+</div>

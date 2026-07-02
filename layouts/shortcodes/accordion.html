@@ -1,0 +1,12 @@
+{{/* Expandable section built on native <details>. Inner content is markdown.
+     Usage:
+       {{< accordion title="Research notes" >}}
+       Full interview transcript and coding notes…
+       {{< /accordion >}} */}}
+<details class="cs-accordion">
+  <summary class="cs-accordion__summary">
+    <span>{{ .Get "title" }}</span>
+    <span class="cs-accordion__icon" aria-hidden="true">+</span>
+  </summary>
+  <div class="cs-accordion__body">{{ .Inner | markdownify }}</div>
+</details>

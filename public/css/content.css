@@ -304,6 +304,367 @@
   100% { background-position: 0% 50%; }
 }
 
+/* ==========================================
+CASE-STUDY SHORTCODE COMPONENTS
+Shared design language: white surfaces lifted by --shadow-border,
+IBM Plex Mono uppercase labels, Geologica headings, 10px radii.
+========================================== */
+
+/* Consistent vertical rhythm for every block-level shortcode. */
+.cs-metrics,
+.cs-grid,
+.cs-gallery,
+.cs-figure,
+.cs-video,
+.cs-callout,
+.cs-process,
+.cs-timeline,
+.cs-comparison,
+.cs-persona,
+.cs-accordion {
+  margin: 2rem 0 2.4rem;
+}
+
+/* Let shortcode media sit flush; the base .case-study-content img margins
+   would otherwise double up inside these layouts. */
+.cs-grid img,
+.cs-gallery img,
+.cs-figure img,
+.cs-comparison img,
+.cs-persona img {
+  margin: 0;
+}
+
+/* ---- metrics : KPI cards ---- */
+.cs-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.9rem;
+}
+
+.cs-metric {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-border);
+}
+
+.cs-metric__value {
+  color: var(--dark);
+  font-family: "Geologica", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 420;
+  line-height: 1;
+}
+
+.cs-metric__label {
+  color: color-mix(in srgb, var(--dark) 55%, transparent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+/* ---- 2col / 2col-reverse / 3col : column grids ---- */
+.cs-grid {
+  display: grid;
+  gap: clamp(1.2rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.cs-grid--2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.cs-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cs-grid--reverse > .cs-col:first-child {
+  order: 2;
+}
+
+.cs-col {
+  position: sticky;
+  top: 10vh;
+  height: fit-content;
+}
+
+.cs-col > :first-child {
+  margin-top: 0;
+}
+
+.cs-col > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---- gallery : responsive image grid ---- */
+.cs-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.cs-gallery p {
+  margin: 0;
+}
+
+.cs-gallery img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- figure : captioned image ---- */
+.cs-figure {
+  margin-inline: 0;
+}
+
+.cs-figure figcaption,
+.cs-comparison figcaption {
+  margin-top: 0.6rem;
+  color: color-mix(in srgb, var(--dark) 58%, transparent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+/* ---- video : flush player, square like a screen (unlike the rounded
+   images) but carrying the same subtle outline for depth ---- */
+.cs-video {
+  margin-inline: 0;
+}
+
+.cs-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  background: var(--black);
+  border-radius: 0;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  outline-offset: -1px;
+}
+
+/* ---- process : horizontal steps ---- */
+.cs-process {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.cs-process__step {
+  padding: 0.6rem 1rem;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-border);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cs-process__arrow {
+  color: color-mix(in srgb, var(--dark) 45%, transparent);
+  font-size: 1rem;
+}
+
+/* ---- timeline : vertical chronology ---- */
+.cs-timeline {
+  display: grid;
+  gap: 0;
+  padding-left: 0.5rem;
+}
+
+.cs-timeline__item {
+  position: relative;
+  display: grid;
+  gap: 0.35rem;
+  padding: 0 0 1.6rem 1.75rem;
+  border-left: 2px solid var(--gray);
+}
+
+.cs-timeline__item:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+
+.cs-timeline__dot {
+  position: absolute;
+  left: -7px;
+  top: 0.15rem;
+  width: 12px;
+  height: 12px;
+  background: var(--white);
+  border: 2px solid var(--themed-primary);
+  border-radius: 50%;
+}
+
+.cs-timeline__date {
+  color: color-mix(in srgb, var(--dark) 55%, transparent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.cs-timeline__title {
+  margin: 0;
+}
+
+.cs-timeline__body > :first-child { margin-top: 0; }
+.cs-timeline__body > :last-child { margin-bottom: 0; }
+
+/* ---- comparison : before / after ---- */
+.cs-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.cs-comparison__item {
+  margin: 0;
+}
+
+/* ---- persona : profile card ---- */
+.cs-persona {
+  padding: 1.3rem 1.4rem;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-border);
+}
+
+.cs-persona__head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.cs-persona__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
+
+.cs-persona__meta {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.cs-persona__name {
+  color: var(--dark);
+  font-family: "Geologica", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.15;
+}
+
+.cs-persona__role {
+  color: color-mix(in srgb, var(--dark) 55%, transparent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.cs-persona__body {
+  margin-top: 1rem;
+}
+
+.cs-persona__body > :first-child { margin-top: 0; }
+.cs-persona__body > :last-child { margin-bottom: 0; }
+
+/* ---- accordion : expandable section ---- */
+.cs-accordion {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-border);
+  overflow: hidden;
+}
+
+.cs-accordion__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1.2rem;
+  color: var(--dark);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  list-style: none;
+}
+
+.cs-accordion__summary::-webkit-details-marker {
+  display: none;
+}
+
+.cs-accordion__icon {
+  display: inline-block;
+  color: color-mix(in srgb, var(--dark) 55%, transparent);
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.cs-accordion[open] .cs-accordion__icon {
+  transform: rotate(45deg);
+}
+
+.cs-accordion__body {
+  padding: 0 1.2rem 1.1rem;
+}
+
+.cs-accordion__body > :first-child { margin-top: 0; }
+.cs-accordion__body > :last-child { margin-bottom: 0; }
+
+/* ---- button : external link ---- */
+.cs-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.3rem 0.5rem 0.3rem 0;
+  padding: 0.6rem 1.1rem;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-border);
+  color: var(--dark);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cs-button:hover {
+  background: var(--white);
+  box-shadow: var(--shadow-border-hover);
+  transform: translateY(-1px);
+}
+
+.cs-button__icon {
+  color: color-mix(in srgb, var(--dark) 55%, transparent);
+}
+
+@media (max-width: 760px) {
+  .cs-grid--2,
+  .cs-grid--3,
+  .cs-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-col {
+  position: static;
+}
+
+  .cs-grid--reverse > .cs-col:first-child {
+    order: 0;
+  }
+}
+
 @media (max-width: 1024px) {
   .case-study-header.has-section-nav {
     display: flex;

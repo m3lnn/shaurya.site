@@ -1,0 +1,9 @@
+{{/* 50/50 grid. Put two {{< col >}} children inside.
+     Usage:
+       {{< 2col >}}
+         {{< col >}}Text…{{< /col >}}
+         {{< col >}}![alt](image.png){{< /col >}}
+       {{< /2col >}} */}}
+<div class="cs-grid cs-grid--2">
+  {{ .Inner }}
+</div>

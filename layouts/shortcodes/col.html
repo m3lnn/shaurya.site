@@ -1,0 +1,5 @@
+{{/* A single column. Child of {{< 2col >}}, {{< 2col-reverse >}}, {{< 3col >}}.
+     Inner content is rendered as markdown. */}}
+<div class="cs-col">
+  {{ .Inner | markdownify }}
+</div>

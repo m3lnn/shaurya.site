@@ -1,0 +1,24 @@
+{{/* Before / after image comparison. Image params may be full bundle paths or
+     bare filenames; they resolve against the page's bundled resources.
+     Usage: {{< comparison before="images/old.png" after="images/new.png"
+              before-label="Old UI" after-label="New UI" >}} */}}
+{{ $before := .Get "before" }}
+{{ $bres := .Page.Resources.GetMatch $before }}
+{{ if not $bres }}{{ $bres = .Page.Resources.GetMatch (printf "**%s" $before) }}{{ end }}
+{{ with $bres }}{{ $before = .RelPermalink }}{{ end }}
+{{ $after := .Get "after" }}
+{{ $ares := .Page.Resources.GetMatch $after }}
+{{ if not $ares }}{{ $ares = .Page.Resources.GetMatch (printf "**%s" $after) }}{{ end }}
+{{ with $ares }}{{ $after = .RelPermalink }}{{ end }}
+{{ $beforeLabel := .Get "before-label" | default "Before" }}
+{{ $afterLabel := .Get "after-label" | default "After" }}
+<div class="cs-comparison">
+  <figure class="cs-comparison__item">
+    <img src="{{ $before }}" alt="{{ $beforeLabel }}">
+    <figcaption>{{ $beforeLabel }}</figcaption>
+  </figure>
+  <figure class="cs-comparison__item">
+    <img src="{{ $after }}" alt="{{ $afterLabel }}">
+    <figcaption>{{ $afterLabel }}</figcaption>
+  </figure>
+</div>

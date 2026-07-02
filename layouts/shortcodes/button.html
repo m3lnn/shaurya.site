@@ -1,0 +1,10 @@
+{{/* External link button. Uses the `.external` class so it gets the external
+     cursor and opens in a new tab. The label is the inner text.
+     Usage:
+       {{< button href="https://figma.com/…" >}}View prototype{{< /button >}}
+       {{< button href="https://github.com/…" >}}GitHub{{< /button >}} */}}
+{{ $href := .Get "href" | default (.Get "url") }}
+<a class="cs-button external" href="{{ $href }}" target="_blank" rel="noopener">
+  <span>{{ trim .Inner " \n" }}</span>
+  <span class="cs-button__icon" aria-hidden="true">↗</span>
+</a>

@@ -1,0 +1,12 @@
+{{/* Captioned image. `src` may be a full bundle path (images/foo.png) or just
+     a filename (foo.png); it resolves against the page's bundled resources,
+     falling back to the raw path.
+     Usage: {{< figure src="images/wireframe.png" caption="Early wireframe" >}} */}}
+{{ $src := .Get "src" }}
+{{ $res := .Page.Resources.GetMatch $src }}
+{{ if not $res }}{{ $res = .Page.Resources.GetMatch (printf "**%s" $src) }}{{ end }}
+{{ with $res }}{{ $src = .RelPermalink }}{{ end }}
+<figure class="cs-figure">
+  <img src="{{ $src }}" alt="{{ .Get "alt" | default (.Get "caption") }}">
+  {{ with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>
