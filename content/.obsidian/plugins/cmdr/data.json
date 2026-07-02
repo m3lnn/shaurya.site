@@ -4,7 +4,15 @@
   "debug": false,
   "editorMenu": [],
   "fileMenu": [],
-  "leftRibbon": [],
+  "leftRibbon": [
+    {
+      "id": "obsidian-shellcommands:shell-command-wekyyh4h2j",
+      "icon": "lucide-upload",
+      "name": "Shell commands: Execute: Publish Hugo Site",
+      "mode": "any",
+      "color": "#00942c"
+    }
+  ],
   "rightRibbon": [],
   "titleBar": [],
   "statusBar": [],

@@ -1,6 +1,6 @@
 ---
 title: Good design, bad design
-date: 2025-11-03T14:51:38+05:30
+date: 2026-07-02
 description: ""
 tags: []
 categories: []
@@ -8,6 +8,8 @@ featuredImage: ""
 slug: good-design-bad-design
 Excerpt: ""
 ---
+hello 
+
 One thing that really confused me in design school was the emphasis on good design and bad design. It was odd to me that this field placed so much emphasis on showing what good and bad is, instead of just giving us the rules to make something good.
 
 Somebody studying mathematics, engineering, medicine, literature or anything else, is just taught the *right way of doing things* in their fields. At most, they are taught about failures as cautionary case studies. Why then, is it that so many programs insist on designers understanding what bad design is? 
