@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "writing/being-annoying.md",
+                "file": "writing/bad-design.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "being-annoying"
+              "title": "bad-design"
             }
           },
           {
@@ -198,11 +198,11 @@
   },
   "active": "e5bf721b6a76e108",
   "lastOpenFiles": [
+    "writing/being-annoying.md",
     "writing/consumption-and-privacy.md",
-    "writing/good-vs-bad-design.md",
+    "writing/bad-design.md",
     "writing/nat-friedman.md",
     "writing/why-designers-make-bad-founders.md",
-    "writing/being-annoying.md",
     "writing/_index.md",
     "writing/what-is-a-product.md",
     "writing/battle.md",

@@ -1,11 +1,11 @@
 ---
-title: Good design, bad design
+title: Bad design
 date: 2026-07-02
 description: ""
 tags: []
 categories: []
 featuredImage: ""
-slug: good-design-bad-design
+slug: bad-design
 Excerpt: ""
 ---
 One thing that really confused me in design school was the emphasis on good design and bad design. It was odd to me that this field placed so much emphasis on showing what good and bad is, instead of just giving us the rules to make something good.
