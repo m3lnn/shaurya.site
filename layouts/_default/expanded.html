@@ -18,9 +18,9 @@
 
     <main class="main-content default-expanded">
         <div class="navigation">
-            <a href="{{ "/" | relURL }}" class="{{ if eq .RelPermalink "/" }}active{{ end }}">working</a>
-            <a href="{{ "/writing/" | relURL }}" class="{{ if eq .RelPermalink "/writing/" }}active{{ end }}">writing</a>
-            <a href="{{ "/painting/" | relURL }}" class="{{ if eq .RelPermalink "/painting/" }}active{{ end }}">painting</a>
+            <a href="{{ "/" | relURL }}" class="{{ if eq .RelPermalink "/" }}active{{ end }}" data-expand="true">working</a>
+            <a href="{{ "/writing/" | relURL }}" class="{{ if eq .RelPermalink "/writing/" }}active{{ end }}" data-expand="true">writing</a>
+            <a href="{{ "/painting/" | relURL }}" class="{{ if eq .RelPermalink "/painting/" }}active{{ end }}" data-expand="true">painting</a>
 
             <div style="position: absolute; right: 10px; display:flex; gap: 30px">
                 <a href="{{ "/about/" | relURL }}" class="{{ if eq .RelPermalink "/about/" }}active{{ end }}" data-expand="true">[ about me ]</a>
@@ -32,6 +32,8 @@
             {{ .Content }}
         </div>
     </main>
+
+    <script src="/scripts/expander.js?v={{ (os.Stat "static/scripts/expander.js").ModTime.Unix }}"></script>
     </body>
-    
+
 </html>
