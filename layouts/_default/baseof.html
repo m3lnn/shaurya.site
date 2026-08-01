@@ -17,6 +17,16 @@
 
     <link rel="icon" href="{{ $favicon | relURL }}" type="image/png">
 
+    <!-- Set before the stylesheet loads so the header starts collapsed on
+         first paint when we've arrived here via the expanded-layout's
+         collapse animation -- see expander.js for the reveal that follows. -->
+    <script>
+    if (sessionStorage.getItem('siteSettle')) {
+      sessionStorage.removeItem('siteSettle');
+      document.documentElement.classList.add('is-settling');
+    }
+    </script>
+
     <link rel="stylesheet" href="/css/global.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

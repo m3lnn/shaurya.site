@@ -372,6 +372,15 @@ HEADER
   min-height: 180px;
 }
 
+/* First-paint clamp for pages arriving via the expanded layout's collapse
+   animation -- keeps the header at 0 height so the card starts flush with
+   the top of the viewport (matching where the collapse left it), then
+   expander.js grows it back open. Cleared once the reveal finishes. */
+html.is-settling .header-content {
+  max-height: 0;
+  min-height: 0;
+}
+
 .navigation{
     display: flex;
     justify-content: center;

@@ -7,6 +7,14 @@
     <meta name="description" content="{{ .Description | default .Site.Params.description }}">
     
     <link rel="icon" type="image/x-icon" href="/assets/default.png">
+
+    <!-- This layout has no header to settle, so just clear a stale flag
+         (e.g. about -> resume) rather than let it leak into a later,
+         unrelated page load -- see expander.js / baseof.html. -->
+    <script>
+    if (sessionStorage.getItem('siteSettle')) sessionStorage.removeItem('siteSettle');
+    </script>
+
     <link rel="stylesheet" href="/css/global.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
