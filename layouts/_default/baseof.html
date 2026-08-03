@@ -17,14 +17,22 @@
 
     <link rel="icon" href="{{ $favicon | relURL }}" type="image/png">
 
-    <!-- Set before the stylesheet loads so the header starts collapsed on
-         first paint when we've arrived here via the expanded-layout's
-         collapse animation -- see expander.js for the reveal that follows. -->
+    <!-- Set before the stylesheet loads so the header/content start exactly
+         where the previous page's JS-driven transition left them, on first
+         paint -- see expander.js for the settle/reveal that follows. -->
     <script>
-    if (sessionStorage.getItem('siteSettle')) {
-      sessionStorage.removeItem('siteSettle');
-      document.documentElement.classList.add('is-settling');
-    }
+    (function () {
+      var settleHeight = sessionStorage.getItem('siteSettle');
+      if (settleHeight !== null) {
+        sessionStorage.removeItem('siteSettle');
+        document.documentElement.style.setProperty('--settle-start-height', settleHeight + 'px');
+        document.documentElement.classList.add('is-settling');
+      }
+      if (sessionStorage.getItem('sitePageFade')) {
+        sessionStorage.removeItem('sitePageFade');
+        document.documentElement.classList.add('is-page-fading');
+      }
+    })();
     </script>
 
     <link rel="stylesheet" href="/css/global.css">

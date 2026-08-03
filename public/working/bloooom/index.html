@@ -15,10 +15,18 @@
 
     
     <script>
-    if (sessionStorage.getItem('siteSettle')) {
-      sessionStorage.removeItem('siteSettle');
-      document.documentElement.classList.add('is-settling');
-    }
+    (function () {
+      var settleHeight = sessionStorage.getItem('siteSettle');
+      if (settleHeight !== null) {
+        sessionStorage.removeItem('siteSettle');
+        document.documentElement.style.setProperty('--settle-start-height', settleHeight + 'px');
+        document.documentElement.classList.add('is-settling');
+      }
+      if (sessionStorage.getItem('sitePageFade')) {
+        sessionStorage.removeItem('sitePageFade');
+        document.documentElement.classList.add('is-page-fading');
+      }
+    })();
     </script>
 
     <link rel="stylesheet" href="/css/global.css">
@@ -380,7 +388,7 @@
         <a href="/site">About this site</a>
     </div>
     <p class="light-text">
-        Last updated on August 02, 2026
+        Last updated on August 03, 2026
     </p>
 </footer>
 
@@ -388,7 +396,7 @@
     <div class="cursor-label" id="cursorLabel" aria-hidden="true"></div>
 
     <script src="/scripts/scroller.js?v=1782804293"></script>
-    <script src="/scripts/expander.js?v=1785620102"></script>
+    <script src="/scripts/expander.js?v=1785768756"></script>
 
     
     <script src="/scripts/gsap.min.js?v=3.13.0"></script>

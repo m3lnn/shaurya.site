@@ -372,13 +372,22 @@ HEADER
   min-height: 180px;
 }
 
-/* First-paint clamp for pages arriving via the expanded layout's collapse
-   animation -- keeps the header at 0 height so the card starts flush with
-   the top of the viewport (matching where the collapse left it), then
-   expander.js grows it back open. Cleared once the reveal finishes. */
+/* First-paint clamp for pages arriving via a JS-driven page transition --
+   keeps the header at whatever height the previous page's header was
+   (0 if arriving from the header-less expanded layout) so it doesn't jump,
+   then expander.js eases it open/shut to this page's real height. Cleared
+   once that finishes. min-height is pinned to 0 throughout so max-height
+   alone drives the box (min-height otherwise wins any conflict). */
 html.is-settling .header-content {
-  max-height: 0;
+  max-height: var(--settle-start-height, 0px);
   min-height: 0;
+}
+
+/* Companion clamp: this page's own content starts invisible so
+   expander.js can fade it in rather than have it appear instantly. Only
+   set when leaving via a same-layout page transition. */
+html.is-page-fading .main-content > *:not(.navigation) {
+  opacity: 0;
 }
 
 .navigation{
@@ -790,6 +799,26 @@ ENTER ANIMATIONS — split & staggered
 .reveal > *:nth-child(4) { animation-delay: 330ms; }
 .reveal > *:nth-child(5) { animation-delay: 420ms; }
 
+/* Exit counterpart, used when leaving via a same-layout page transition
+   (see transitionWithinA() in expander.js). */
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(6px);
+  }
+}
+
+.page-leaving {
+  animation: fadeOutDown 450ms cubic-bezier(0.4, 0, 1, 1) forwards;
+  pointer-events: none;
+}
+
 /* Stagger the project grid as it arrives — capped so later cards don't
    wait too long. */
 .project-card.show {
@@ -812,6 +841,13 @@ ENTER ANIMATIONS — split & staggered
 
   .reveal > *,
   .project-card.show {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  html.is-page-fading .main-content > *:not(.navigation),
+  .page-leaving {
     opacity: 1;
     filter: none;
     transform: none;
