@@ -22,7 +22,7 @@
     <div style="display: flex; flex-direction: column; gap: 2rem;">
     {{ range .RegularPages.ByDate.Reverse }}
         <section style="border-top: 1px solid color-mix(in srgb, var(--themed-primary) 25%, transparent); padding-top: 1.5rem;">
-            <div class="light-text" style="margin-bottom: 0.75rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem;">
+            <div class="light-text" style="margin-bottom: 0.75rem; font-family: 'Geologica', sans-serif; font-size: 0.8rem; text-transform: uppercase;">
                 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
             </div>
             <h3 style="margin-top: 0;">{{ .Title }}</h3>

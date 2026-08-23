@@ -131,7 +131,7 @@ h3{
 }
 
 h4 {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
@@ -170,7 +170,7 @@ li, figcaption, blockquote {
   align-items: center;
   padding: 0.2rem 0.45rem;
   color: var(--themed-secondary);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.72rem;
   text-transform: uppercase;
   border-radius: 4px;

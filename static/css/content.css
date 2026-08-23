@@ -14,7 +14,7 @@
 .case-study-intro .project-name {
   margin: 0 0 0.6rem;
   color: color-mix(in srgb, var(--dark) 58%, transparent);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.9rem;
   line-height: 1.25;
   letter-spacing: 0;
@@ -58,7 +58,7 @@
 }
 
 .meta-label {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: clamp(0.8rem, 1.2vw, 0.95rem);
   line-height: 1.2;
   text-transform: uppercase;
@@ -92,7 +92,7 @@
 
 .info-tag-title {
   color: color-mix(in srgb, var(--dark) 55%, transparent);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.72rem;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -179,7 +179,7 @@
 .case-study-sidebar a {
   display: inline-block;
   color: color-mix(in srgb, var(--dark) 58%, transparent);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.82rem;
   line-height: 1.25;
   text-decoration: none;
@@ -243,7 +243,7 @@
 
 .nav-label {
   color: color-mix(in srgb, var(--dark) 50%, transparent);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.78rem;
   text-transform: uppercase;
 }
@@ -307,7 +307,7 @@
 /* ==========================================
 CASE-STUDY SHORTCODE COMPONENTS
 Shared design language: white surfaces lifted by --shadow-border,
-IBM Plex Mono uppercase labels, Geologica headings, 10px radii.
+Geologica uppercase labels and headings, 10px radii.
 ========================================== */
 
 /* Consistent vertical rhythm for every block-level shortcode. */
@@ -361,7 +361,7 @@ IBM Plex Mono uppercase labels, Geologica headings, 10px radii.
 
 .cs-metric__label {
   color: color-mix(in srgb, var(--dark) 55%, transparent);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.02em;
   line-height: 1.25;
@@ -426,7 +426,7 @@ IBM Plex Mono uppercase labels, Geologica headings, 10px radii.
 .cs-comparison figcaption {
   margin-top: 0.6rem;
   color: color-mix(in srgb, var(--dark) 58%, transparent);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.8rem;
   line-height: 1.35;
   text-transform: uppercase;
@@ -462,7 +462,7 @@ IBM Plex Mono uppercase labels, Geologica headings, 10px radii.
   background: var(--white);
   border-radius: 10px;
   box-shadow: var(--shadow-border);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.82rem;
   text-transform: uppercase;
   white-space: nowrap;
@@ -506,7 +506,7 @@ IBM Plex Mono uppercase labels, Geologica headings, 10px radii.
 
 .cs-timeline__date {
   color: color-mix(in srgb, var(--dark) 55%, transparent);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.72rem;
   text-transform: uppercase;
 }
@@ -565,7 +565,7 @@ IBM Plex Mono uppercase labels, Geologica headings, 10px radii.
 
 .cs-persona__role {
   color: color-mix(in srgb, var(--dark) 55%, transparent);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.72rem;
   text-transform: uppercase;
 }
@@ -592,7 +592,7 @@ IBM Plex Mono uppercase labels, Geologica headings, 10px radii.
   gap: 1rem;
   padding: 0.95rem 1.2rem;
   color: var(--dark);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.85rem;
   text-transform: uppercase;
   list-style: none;
@@ -632,7 +632,7 @@ IBM Plex Mono uppercase labels, Geologica headings, 10px radii.
   border-radius: 10px;
   box-shadow: var(--shadow-border);
   color: var(--dark);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Geologica", sans-serif;
   font-size: 0.82rem;
   text-transform: uppercase;
   text-decoration: none;
