@@ -1,6 +1,106 @@
 {{ define "page-head" }}
 <link rel="stylesheet" href="/css/content.css">
-{{ with .Params.bgColor }}<style>body { background-color: {{ . }}; }</style>{{ end }}
+{{ with .Params.bgColor }}
+<style>body { background-color: {{ . }}; }</style>
+<script>
+(function () {
+  // Links, tags and other "themed-primary" elements sit on white, so the raw
+  // case-study color (fine as a flat background swatch) can be too light to
+  // read as text/borders. Darken it -- same hue and saturation, less
+  // lightness -- only as far as needed to clear the ~3:1 contrast ratio the
+  // site's own default orange link color already sits at against white.
+  var raw = {{ . }};
+  var target = 3.0;
+
+  function hexToRgb(hex) {
+    var m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(hex);
+    if (!m) return null;
+    var h = m[1];
+    if (h.length === 3) {
+      h = h.split('').map(function (c) { return c + c; }).join('');
+    }
+    var num = parseInt(h, 16);
+    return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+  }
+
+  function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h = 0, s = 0, l = (max + min) / 2;
+    if (max !== min) {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch (max) {
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        default: h = (r - g) / d + 4; break;
+      }
+      h /= 6;
+    }
+    return { h: h, s: s, l: l };
+  }
+
+  function hslToRgb(h, s, l) {
+    function hue2rgb(p, q, t) {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    }
+    if (s === 0) {
+      var v = Math.round(l * 255);
+      return { r: v, g: v, b: v };
+    }
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    return {
+      r: Math.round(hue2rgb(p, q, h + 1 / 3) * 255),
+      g: Math.round(hue2rgb(p, q, h) * 255),
+      b: Math.round(hue2rgb(p, q, h - 1 / 3) * 255)
+    };
+  }
+
+  function relLuminance(rgb) {
+    var chan = [rgb.r, rgb.g, rgb.b].map(function (c) {
+      c /= 255;
+      return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * chan[0] + 0.7152 * chan[1] + 0.0722 * chan[2];
+  }
+
+  function contrastVsWhite(rgb) {
+    return 1.05 / (relLuminance(rgb) + 0.05);
+  }
+
+  function toHex(rgb) {
+    function h(c) { return ('0' + c.toString(16)).slice(-2); }
+    return '#' + h(rgb.r) + h(rgb.g) + h(rgb.b);
+  }
+
+  var rgb = hexToRgb(raw);
+  var accessible = raw;
+
+  if (rgb && contrastVsWhite(rgb) < target) {
+    var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+    var l = hsl.l;
+    var current = rgb;
+    var guard = 0;
+    while (contrastVsWhite(current) < target && l > 0.04 && guard < 100) {
+      l -= 0.01;
+      current = hslToRgb(hsl.h, hsl.s, l);
+      guard++;
+    }
+    accessible = toHex(current);
+  }
+
+  document.documentElement.style.setProperty('--themed-primary', accessible);
+})();
+</script>
+{{ else }}
+<style>:root { --themed-primary: var(--dark); }</style>
+{{ end }}
 {{ end }}
 
 {{ define "header-content" }}

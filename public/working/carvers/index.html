@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1399&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Carvers </title>
@@ -37,7 +37,105 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
      
 <link rel="stylesheet" href="/css/content.css">
+
 <style>body { background-color: #BFAFFE; }</style>
+<script>
+(function () {
+  
+  
+  
+  
+  
+  var raw = "#BFAFFE";
+  var target = 3.0;
+
+  function hexToRgb(hex) {
+    var m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(hex);
+    if (!m) return null;
+    var h = m[1];
+    if (h.length === 3) {
+      h = h.split('').map(function (c) { return c + c; }).join('');
+    }
+    var num = parseInt(h, 16);
+    return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+  }
+
+  function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h = 0, s = 0, l = (max + min) / 2;
+    if (max !== min) {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch (max) {
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        default: h = (r - g) / d + 4; break;
+      }
+      h /= 6;
+    }
+    return { h: h, s: s, l: l };
+  }
+
+  function hslToRgb(h, s, l) {
+    function hue2rgb(p, q, t) {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    }
+    if (s === 0) {
+      var v = Math.round(l * 255);
+      return { r: v, g: v, b: v };
+    }
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    return {
+      r: Math.round(hue2rgb(p, q, h + 1 / 3) * 255),
+      g: Math.round(hue2rgb(p, q, h) * 255),
+      b: Math.round(hue2rgb(p, q, h - 1 / 3) * 255)
+    };
+  }
+
+  function relLuminance(rgb) {
+    var chan = [rgb.r, rgb.g, rgb.b].map(function (c) {
+      c /= 255;
+      return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * chan[0] + 0.7152 * chan[1] + 0.0722 * chan[2];
+  }
+
+  function contrastVsWhite(rgb) {
+    return 1.05 / (relLuminance(rgb) + 0.05);
+  }
+
+  function toHex(rgb) {
+    function h(c) { return ('0' + c.toString(16)).slice(-2); }
+    return '#' + h(rgb.r) + h(rgb.g) + h(rgb.b);
+  }
+
+  var rgb = hexToRgb(raw);
+  var accessible = raw;
+
+  if (rgb && contrastVsWhite(rgb) < target) {
+    var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+    var l = hsl.l;
+    var current = rgb;
+    var guard = 0;
+    while (contrastVsWhite(current) < target && l > 0.04 && guard < 100) {
+      l -= 0.01;
+      current = hslToRgb(hsl.h, hsl.s, l);
+      guard++;
+    }
+    accessible = toHex(current);
+  }
+
+  document.documentElement.style.setProperty('--themed-primary', accessible);
+})();
+</script>
+
 
 </head>
 <body>
@@ -49,12 +147,10 @@
 
 
 
-    
-
 
 <div class="heading-content case-study-hero">
     
-    <img class="case-study-cover" src="/working/carvers/cover.png" alt="Carvers">
+    <img class="case-study-cover" src="cover.png" alt="Carvers">
     
 </div>
 
@@ -201,7 +297,7 @@
 
 
 <figure class="cs-figure">
-  <img src="/working/carvers/images/process.jpg" alt="The end-to-end design process I followed for Carvers">
+  <img src="process.jpg" alt="The end-to-end design process I followed for Carvers">
   <figcaption>The end-to-end design process I followed for Carvers</figcaption>
 </figure>
 
@@ -228,7 +324,7 @@
 
 <h4 id="understanding-the-market">Understanding the market</h4>
 <h3 id="what-are-the-current-infotainment-systems-and-what-do-they-offer">What are the current infotainment systems and what do they offer?</h3>
-<p><img src="working/carvers/images/research9.jpg" alt="Research Picture 1"></p>
+<p><img src="working/zentel/images/research9.jpg" alt="Research Picture 1"></p>
 <p>To kick off the project, I began by understanding and categorizing existing infotainment systems:</p>
 <ol>
 <li>
@@ -251,7 +347,7 @@
   
   
 <div class="cs-col">
-  <img src="working/carvers/images/research11.jpg" alt="AAOS platform research">
+  <img src="working/zentel/images/research11.jpg" alt="AAOS platform research">
 </div>
 
   
@@ -278,12 +374,12 @@
 <p>Uncommon features: These were the features found in luxury car systems like the Porsche Communication Management (PCM) and MBUX OS. Features like predictive maintainance, ADAS, biometric authentication, driver profiles, AR navigation and in-car entertainment were already produced or in development.</p>
 </li>
 </ol>
-<p><img src="working/carvers/images/research10.jpg" alt="Research Picture 2"></p>
+<p><img src="working/zentel/images/research10.jpg" alt="Research Picture 2"></p>
 <p>With this understanding, user research was conducted to undestand the pains and gains of car buyers, especially those in the luxury segment who expect the best performance and features from their vehicles and are able to pay for them.</p>
 <h4 id="user-research-and-analysis">User Research and Analysis</h4>
 <h3 id="understanding-drivers-needs">Understanding Drivers’ Needs</h3>
 <p>I (along with a teammate working on a similar project for economical cars) surveyed 55 car owners across the spectrum. The goal was to understand the features that users interacted with the most while driving and the pain points in their driving experience.</p>
-<p><img src="working/carvers/images/research11.jpg" alt="Research Picture 4"></p>
+<p><img src="working/zentel/images/research11.jpg" alt="Research Picture 4"></p>
 <p>Due to limited resourses, I was not able to conduct more extensive user research with dealerships and high end car buyers. Online user data (Netnography) was a substitute tool that allowed me to understand user sentiments and pains of this segment.</p>
 <h5 id="drivers-just-need-more-from-their-cars">Drivers just need more from their cars.</h5>
 <p>The research provided valuable insights into the driving experiences and preferences of car owners. Key findings from the survey and netnography included:</p>
@@ -303,7 +399,7 @@
 </ol>
 <h5 id="addressing-the-digital-tactile-dilemma-why-digital-interfaces-prevail">Addressing the Digital-Tactile Dilemma: Why Digital Interfaces Prevail</h5>
 <p>A major sentiment discovered online was how users preferred tactile control systems and simple infotainment system. This raises the question; why are car makers investing so heavily in digital interfaces when many users demanded tactile control over their cars?</p>
-<p><img src="working/carvers/images/research12.jpg" alt="Research Picture 5"></p>
+<p><img src="working/zentel/images/research12.jpg" alt="Research Picture 5"></p>
 <p>This was because digital infotainment systems were much easy to manufacture, assemble, repair and replace in cars compared to tactile switches that need to be individually designed and manufactured. Revamping the driving experience also becomes easier with a digital infotainment system compared to physical dials where new moulds would need to be made for any changes.</p>
 <h3 id="digital-saves-money-but-is-it-providing-the-best-experience">Digital saves money but is it providing the best experience?</h3>
 <blockquote>
@@ -346,22 +442,22 @@
 </div>
 </div>
 
-<p><img src="working/carvers/images/research1.jpg" alt="Research 2 Picture 1"></p>
+<p><img src="working/zentel/images/research1.jpg" alt="Research 2 Picture 1"></p>
 <p>The user journeys built for the personas helped to reveal points of intervention and opportunities.</p>
-<p><img src="working/carvers/images/research3.jpg" alt="Research 2 Picture 3"></p>
+<p><img src="working/zentel/images/research3.jpg" alt="Research 2 Picture 3"></p>
 <p>With a comprihensive understanding of the experience, and a list of potential opportunities to the pain points in the processes, I got to ideating my system and its features. For this, I designed a custom tool to help me gain deeper insights and a wider range of ideas.</p>
-<p><img src="working/carvers/images/research5.jpg" alt="Research 2 Picture 5"></p>
-<p><img src="working/carvers/images/research4.jpg" alt="Research 2 Picture 4"></p>
+<p><img src="working/zentel/images/research5.jpg" alt="Research 2 Picture 5"></p>
+<p><img src="working/zentel/images/research4.jpg" alt="Research 2 Picture 4"></p>
 <p>The ideation process led to the final concept, and I developed user flows to integrate the proposed design interventions into the driving experience.</p>
-<p><img src="working/carvers/images/research6.jpg" alt="Research 2 Picture 6"></p>
-<p><img src="working/carvers/images/research7.jpg" alt="Research 2 Picture 7"></p>
+<p><img src="working/zentel/images/research6.jpg" alt="Research 2 Picture 6"></p>
+<p><img src="working/zentel/images/research7.jpg" alt="Research 2 Picture 7"></p>
 <p>The user flows allowed me to build an information archetecture that covered the entire infotainment system and its offerings.</p>
-<p><img src="working/carvers/images/research8.jpg" alt="Research 2 Picture 8"></p>
+<p><img src="working/zentel/images/research8.jpg" alt="Research 2 Picture 8"></p>
 <h4 id="user-interface-development">User Interface development</h4>
 <h3 id="conceptualizing-the-user-interface">Conceptualizing the User Interface</h3>
 <p>Guided by the information architecture, I began with low-fidelity sketches on paper to ideate the interface&rsquo;s look and feel. The wireframes illustrate the UI concept, incorporating various grid layouts that adapt based on the driver’s speed and concentration levels. The design aims to be efficient, facilitating multitasking while minimizing cognitive load.</p>
-<p><img src="working/carvers/images/Design2.jpg" alt="Design 2"></p>
-<p><img src="working/carvers/images/Design3.jpg" alt="Design 3"></p>
+<p><img src="working/zentel/images/Design2.jpg" alt="Design 2"></p>
+<p><img src="working/zentel/images/Design3.jpg" alt="Design 3"></p>
 <h3 id="53-of-surveyed-drivers-reported-boredom-or-monotonous-driving-during-their-commutes">53% of surveyed drivers reported boredom or monotonous driving during their commutes.</h3>
 <p>The Interface aims to guide and assist the user in every stage of the driving process and helps them make best use of their time in the car through apps like Schedule Manager and Mindful Driving.</p>
 <h5 id="style-and-aesthetics">Style and aesthetics</h5>
@@ -372,7 +468,7 @@
 
 
 <figure class="cs-figure">
-  <img src="/working/carvers/images/Design4.jpg" alt="Moodboard exploring style, texture, colour and typography">
+  <img src="Design4.jpg" alt="Moodboard exploring style, texture, colour and typography">
   <figcaption>Moodboard exploring style, texture, colour and typography</figcaption>
 </figure>
 
@@ -380,7 +476,7 @@
 <blockquote>
 <p>The visual appeal is crucial in the automobile space, significantly influencing buyers&rsquo; purchase decisions. Hence, I focused heavily on the style and appearance of the interface, striving for an elegant yet contemporary design that aligns with the concept of a new and smarter infotainment system.</p>
 </blockquote>
-<p><img src="working/carvers/images/Design5.jpg" alt="Design 5"></p>
+<p><img src="working/zentel/images/Design5.jpg" alt="Design 5"></p>
 <ul>
 <li>
 <p><strong>Typography:</strong> I used a simple San-Serif typeface to ensure readability and complimented it with two fonts that brought character and appeal.</p>
@@ -393,19 +489,19 @@
 </li>
 </ul>
 <p>I created various reusable and responsive components for my design keeping both my colour schemes in mind. I see this as the beginnings of a design system for AAOS powerd infotainment systems.</p>
-<p><img src="working/carvers/images/Design6.jpg" alt="Design 6"></p>
+<p><img src="working/zentel/images/Design6.jpg" alt="Design 6"></p>
 <h4 id="final-design">Final Design</h4>
 <p>The final interface design incorporates a selection of features from the information architecture, focusing primarily on ride optimization. This segment of the system addresses key aspects such as navigation, ride start, and driving assistance, all aimed at enhancing the overall driving experience.</p>
 
 <div class="cs-gallery">
-  <img src="working/carvers/images/final1.jpg" alt="Final design 1">
-<img src="working/carvers/images/final2.jpg" alt="Final design 2">
+  <img src="working/zentel/images/final1.jpg" alt="Final design 1">
+<img src="working/zentel/images/final2.jpg" alt="Final design 2">
 </div>
 
 
 <div class="cs-gallery">
-  <img src="working/carvers/images/final3.jpg" alt="Final design 3">
-<img src="working/carvers/images/final4.jpg" alt="Final design 4">
+  <img src="working/zentel/images/final3.jpg" alt="Final design 3">
+<img src="working/zentel/images/final4.jpg" alt="Final design 4">
 </div>
 
 
@@ -419,7 +515,7 @@
 
   
 <div class="cs-col">
-  <img src="working/carvers/images/Feature_1.jpg" alt="undefined media 1">
+  <img src="working/zentel/images/Feature_1.jpg" alt="undefined media 1">
 </div>
 
 
@@ -430,7 +526,7 @@
   
   
 <div class="cs-col">
-  <img src="working/carvers/images/Feature_2.jpg" alt="undefined media 1">
+  <img src="working/zentel/images/Feature_2.jpg" alt="undefined media 1">
 </div>
 
   
@@ -457,18 +553,18 @@
 
 <div class="cs-comparison">
   <figure class="cs-comparison__item">
-    <img src="/working/carvers/images/Feature_3.jpg" alt="Light mode">
+    <img src="Feature_3.jpg" alt="Light mode">
     <figcaption>Light mode</figcaption>
   </figure>
   <figure class="cs-comparison__item">
-    <img src="/working/carvers/images/Feature_4.jpg" alt="Dark mode">
+    <img src="Feature_4.jpg" alt="Dark mode">
     <figcaption>Dark mode</figcaption>
   </figure>
 </div>
 
 <h4 id="app-library">App Library</h4>
 <p>Google&rsquo;s AAOS allows vehicles to come with a play store and the option to install various apps configured for infotainment systems. The design includes app libraries in multiple layouts to ensure easy switching and easy navigation when required.</p>
-<p><img src="working/carvers/images/Feature_3.jpg" alt="undefined media 1"></p>
+<p><img src="working/zentel/images/Feature_3.jpg" alt="undefined media 1"></p>
 <h4 id="reflection">Reflection</h4>
 <h5 id="process-process--process">Process, Process, &amp; Process</h5>
 <p>This project showed the importance of a thorough process to me. Starting from a place of genuine interest allowed me to build a concept through a well-defined and intensive approach. The meticulous attention to each phase—research, ideation, and design—was crucial in shaping a meaningful and functional infotainment system. This experience has reinforced my belief in the value of a systematic process for achieving successful outcomes</p>
@@ -483,16 +579,16 @@
 
     <nav class="project-navigation">
         
-        <a href="http://localhost:1313/working/carvers/" class="nav-link nav-prev">
+        <a href="http://localhost:1399/working/fast-cast/" class="nav-link nav-prev">
             <span class="nav-label">← Previous</span>
-            <span class="nav-title">Carvers</span>
+            <span class="nav-title">Fast Cast</span>
         </a>
         
 
         
-        <a href="http://localhost:1313/working/bloooom/" class="nav-link nav-next">
+        <a href="http://localhost:1399/working/carvers/" class="nav-link nav-next">
             <span class="nav-label">Next →</span>
-            <span class="nav-title">Bloooom</span>
+            <span class="nav-title">Carvers</span>
         </a>
         
     </nav>
@@ -554,7 +650,7 @@
         <a href="/site">About this site</a>
     </div>
     <p class="light-text">
-        Last updated on August 03, 2026
+        Last updated on August 23, 2026
     </p>
 </footer>
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "writing/bad-design.md",
+                "file": "writing/why beauty matters less in product design.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "bad-design"
+              "title": "why beauty matters less in product design"
             }
           },
           {
@@ -55,7 +55,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -198,9 +200,26 @@
   },
   "active": "e5bf721b6a76e108",
   "lastOpenFiles": [
+    "working/zentel/index.md",
+    "writing/why beauty matters less in product design.md",
+    "working/fabric/index.md",
+    "writing/bad-design.md",
+    "working/ces/index.md",
+    "working/ces",
+    "working/zentel/cover.png",
+    "working/zentel/images/research9.jpg",
+    "working/zentel/images/research8.jpg",
+    "working/zentel/images/research7.jpg",
+    "working/zentel/images/research6.jpg",
+    "working/zentel/images/research5.jpg",
+    "working/zentel/images/research4.jpg",
+    "working/zentel/images/research3.jpg",
+    "working/zentel/images/research12.jpg",
+    "working/zentel/images/research11.jpg",
+    "working/zentel/images",
+    "working/zentel",
     "writing/being-annoying.md",
     "writing/consumption-and-privacy.md",
-    "writing/bad-design.md",
     "writing/nat-friedman.md",
     "writing/why-designers-make-bad-founders.md",
     "writing/_index.md",
@@ -209,15 +228,7 @@
     "writing/making-art.md",
     "writing/being-annoyinggg.md",
     "working/saves/index.md",
-    "working/qaushey/image.png",
-    "working/pocket-gluca/image.png",
-    "working/pocket-gluca/image copy.png",
-    "working/scrp/image.png",
-    "working/qaushey/image copy.png",
-    "working/fast-cast/image.png",
     "about.md",
-    "working/saves/image.png",
-    "working/saves/image copy.png",
     "working/saves",
     "design.md",
     "site.md",
