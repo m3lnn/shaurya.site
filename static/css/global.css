@@ -398,11 +398,21 @@ html.is-page-fading .main-content > *:not(.navigation) {
     padding: 20px;
     position: sticky;
     top: 0;
-    transition: color 0.3s ease;
+    /* border is always present (1px, transparent) so the fade-in never
+       shifts layout -- only its color transitions. */
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s ease, border-color 0.4s ease;
     margin-bottom: 5rem;
     background-color: var(--white);
     z-index: 99;
     flex-wrap: wrap;
+}
+
+/* Set by nav-sticky.js once the sentinel above the nav scrolls out of
+   view -- i.e. exactly when the sticky nav takes over the top of the
+   viewport. */
+.navigation.is-stuck {
+    border-bottom-color: var(--gray);
 }
 
 .navigation > a {

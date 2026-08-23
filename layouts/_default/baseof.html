@@ -49,6 +49,7 @@
     </header>
 
     <main class="main-content">
+        <div id="navSentinel"></div>
         <div class="navigation">
             <div class="navigation-center">
                 <a href="{{ "/" | relURL }}" class="{{ if eq .RelPermalink "/" }}active{{ end }}">working</a>
@@ -78,5 +79,6 @@
     <script src="/scripts/gsap.min.js?v=3.13.0"></script>
     <script src="/scripts/SplitText.min.js?v=3.13.0"></script>
     <script src="/scripts/cursor-label.js?v={{ (os.Stat "static/scripts/cursor-label.js").ModTime.Unix }}"></script>
+    <script src="/scripts/nav-sticky.js?v={{ (os.Stat "static/scripts/nav-sticky.js").ModTime.Unix }}"></script>
 </body>
 </html>

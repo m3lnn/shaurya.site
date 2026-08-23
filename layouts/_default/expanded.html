@@ -25,6 +25,7 @@
 <body>
 
     <main class="main-content default-expanded">
+        <div id="navSentinel"></div>
         <div class="navigation">
             <a href="{{ "/" | relURL }}" class="{{ if eq .RelPermalink "/" }}active{{ end }}" data-expand="true">working</a>
             <a href="{{ "/writing/" | relURL }}" class="{{ if eq .RelPermalink "/writing/" }}active{{ end }}" data-expand="true">writing</a>
@@ -42,6 +43,7 @@
     </main>
 
     <script src="/scripts/expander.js?v={{ (os.Stat "static/scripts/expander.js").ModTime.Unix }}"></script>
+    <script src="/scripts/nav-sticky.js?v={{ (os.Stat "static/scripts/nav-sticky.js").ModTime.Unix }}"></script>
     </body>
 
 </html>
