@@ -7,6 +7,7 @@ categories: []
 featuredImage: ""
 slug: beauty-in-product-design
 Excerpt: ""
+draft: true
 ---
 I prefer having really short titles for my essays, because this allows me to build up my ideas how I want, without giving much away. But this one demands a longer title because of how important context is here.
 
