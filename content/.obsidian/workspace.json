@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "working/carvers/index.md",
+                "file": "writing/teaching and preaching.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "teaching and preaching"
             }
           },
           {
@@ -200,13 +200,15 @@
   },
   "active": "e5bf721b6a76e108",
   "lastOpenFiles": [
-    "working/zentel/index.md",
-    "writing/why beauty matters less in product design.md",
+    "writing/bad-design.md",
+    "writing/teaching and preaching.md",
     "writing/why-designers-make-bad-founders.md",
+    "writing/why beauty matters less in product design.md",
     "writing/nat-friedman.md",
     "writing/consumption-and-privacy.md",
     "writing/being-annoying.md",
-    "writing/bad-design.md",
+    "working/carvers/index.md",
+    "working/zentel/index.md",
     "writing/_index.md",
     "working/fabric/index.md",
     "working/ces/index.md",

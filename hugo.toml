@@ -6,9 +6,9 @@ enableGitInfo = true
 [params]
   authorName = "Shaurya singh"
   tagline = "Finding my place between beauty and practicality"
-  subtitle = "Software Designer | Creative Technologist"
-  currentRole = "Lead UX at [Wongdoody](https://www.wongdoody.com/)"
-  description = "Portfolio of Shaurya - Software Designer & Creative Technologist"
+  subtitle = "Product Designer | Creative Technologist"
+  currentRole = "UX Design at [Wongdoody](https://www.wongdoody.com/)"
+  description = "Portfolio of Shaurya - Product Designer & Creative Technologist"
 
 [markup]
   [markup.goldmark]
